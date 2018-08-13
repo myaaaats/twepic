@@ -1,0 +1,2 @@
+class Twepic < ApplicationRecord
+end
