@@ -7,7 +7,11 @@ class TwepicsController < ApplicationController
   end
 
   def create
-    Twepic.create(title: params[:twepic][:title], content: params[:twepic][:content])
+    Twepic.create(twepic_params)
     redirect_to new_twepic_path
+  end
+  private
+  def twepic_params
+    params.require(:twepic).permit(:title, :content)
   end
 end
