@@ -1,5 +1,6 @@
 class TwepicsController < ApplicationController
   def index
+    @twepics = Twepic.all
   end
 
   def new
