@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => 'tops#index'
   get '/twepics', to: 'twepics#index'
   resources :twepics do
     collection do

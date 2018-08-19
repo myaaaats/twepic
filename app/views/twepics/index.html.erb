@@ -6,15 +6,17 @@
     <th>タイトル</th>
     <th>内容</th>
   </tr>
-
-<% @twepics.each do |twepic| %>
-  <tr>
-    <td><%= twepic.title %></td>
-    <td><%= twepic.content %></td>
-    <td><%= link_to '詳細を確認する', twepic_path(twepic.id) %></td>
-    <td><%= link_to "編集する", edit_twepic_path(twepic.id) %></td>
-    <td><%= link_to '削除する', twepic_path(twepic.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }  %>
-  </tr>
-<% end %>
 </table>
-<%= link_to '新規投稿をする', new_twepic_path %>
+
+<div class="row">
+  <% @twepics.each do |twepic| %>
+    <div class="col-xs-12 col-md-6">
+          <h4><%= twepic.title %></h4>
+          <p><%= twepic.content %></p>
+          <%= link_to '詳細確認', twepic_path(twepic.id), class: "btn btn-default" %>
+          <%= link_to "編集する", edit_twepic_path(twepic.id), class: "btn btn-info" %>
+          <%= link_to '削除する', twepic_path(twepic.id), class: "btn btn-danger", method: :delete ,data: { confirm: '本当に削除していいですか？' }  %>
+      </div>
+    <% end %>
+  </div>
+<%= link_to '新規投稿をする', new_twepic_path, class: "btn btn-default" %>
