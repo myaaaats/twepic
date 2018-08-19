@@ -1,5 +1,5 @@
 class TwepicsController < ApplicationController
-  before_action :set_twepic, only: [:show, :edit, :update]
+  before_action :set_twepic, only: [:show, :edit, :update, :destroy]
 
   def index
     @twepics = Twepic.all
@@ -30,6 +30,11 @@ class TwepicsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @twepic.destroy
+    redirect_to twepics_path, notice:"削除しました！"
   end
 
   private

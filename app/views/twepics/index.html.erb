@@ -1,6 +1,6 @@
-<%= notice %>
 <h1>Twepic一覧</h1>
 
+<p><%= notice %></p>
 <table>
   <tr>
     <th>タイトル</th>
@@ -13,6 +13,7 @@
     <td><%= twepic.content %></td>
     <td><%= link_to '詳細を確認する', twepic_path(twepic.id) %></td>
     <td><%= link_to "編集する", edit_twepic_path(twepic.id) %></td>
+    <td><%= link_to '削除する', twepic_path(twepic.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }  %>
   </tr>
 <% end %>
 </table>
