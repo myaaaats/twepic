@@ -10,6 +10,8 @@
   <tr>
     <td><%= twepic.title %></td>
     <td><%= twepic.content %></td>
+    <td><%= link_to '詳細を確認する', twepic_path(twepic.id) %></td>
   </tr>
 <% end %>
 </table>
+<%= link_to '新規投稿をする', new_twepic_path %>

@@ -1,4 +1,14 @@
 <%= form_with(model: Twepic.new, local: true) do |form| %>
+<% if @twepic.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @twepic.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @twepic.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
   <div class="twepic_title">
     <%= form.label :title %>
     <%= form.text_field :title %>

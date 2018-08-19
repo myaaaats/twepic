@@ -8,9 +8,18 @@ class TwepicsController < ApplicationController
   end
 
   def create
-    Twepic.create(twepic_params)
-    redirect_to new_twepic_path
+    @twepic = Twepic.create(twepic_params)
+    if @twepic.save
+      redirect_to new_twepic_path
+    else
+      render 'new'
+    end
   end
+
+  def show
+    @twepic = Twepic.find(params[:id])
+  end
+
   private
   def twepic_params
     params.require(:twepic).permit(:title, :content)
