@@ -6,7 +6,11 @@ class TwepicsController < ApplicationController
   end
 
   def new
-    @twepic = Twepic.new
+    if params[:back]
+      @twepic = Twepic.new(twepic_params)
+    else
+      @twepic = Twepic.new
+    end
   end
 
   def create
@@ -35,6 +39,11 @@ class TwepicsController < ApplicationController
   def destroy
     @twepic.destroy
     redirect_to twepics_path, notice:"削除しました！"
+  end
+
+  def confirm
+    @twepic = Twepic.new(twepic_params)
+    render :new if @twepic.invalid?
   end
 
   private
