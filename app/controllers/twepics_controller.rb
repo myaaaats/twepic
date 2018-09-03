@@ -1,5 +1,6 @@
 class TwepicsController < ApplicationController
   before_action :set_twepic, only: [:show, :edit, :update, :destroy]
+  before_action :login, only: [:new, :edit, :show, :destroy]
 
   def index
     @twepics = Twepic.all
@@ -53,5 +54,9 @@ class TwepicsController < ApplicationController
 
   def set_twepic
     @twepic = Twepic.find(params[:id])
+  end
+
+  def login
+    redirect_to new_user_path unless logged_in?
   end
 end
