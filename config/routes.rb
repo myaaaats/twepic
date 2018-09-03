@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   root :to => 'tops#index'
   get '/twepics', to: 'twepics#index'
   resources :twepics do
@@ -6,4 +8,6 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 end
