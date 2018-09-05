@@ -16,6 +16,7 @@ class TwepicsController < ApplicationController
 
   def create
     @twepic = Twepic.create(twepic_params)
+    @twepic.user_id = current_user.id
     if @twepic.save
       redirect_to twepics_path, notice: "投稿しました！"
     else
@@ -24,6 +25,7 @@ class TwepicsController < ApplicationController
   end
 
   def show
+    @favorite = current_user.favorites.find_by(twepic_id: @twepic.id)
   end
 
   def edit

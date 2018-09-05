@@ -1,4 +1,11 @@
 <h1>ブログ詳細画面</h1>
 <p>タイトル: <%= @twepic.title %></p>
 <p>内容: <%= @twepic.content %></p>
+<% unless @twepic.user_id == current_user.id %>
+  <% if @favorite.present? %>
+    <p><%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %></p>
+  <% else %>
+    <p><%= link_to 'お気に入りする', favorites_path(twepic_id: @twepic.id), method: :post, class: 'btn btn-primary' %></p>
+  <% end %>
+<% end %>
 <%= link_to 'ブログ一覧画面にもどる', twepics_path %>
