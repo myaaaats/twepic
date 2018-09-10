@@ -1,4 +1,5 @@
 <h1>ブログ詳細画面</h1>
+<p>投稿ユーザー<%= @twepic.user.name %></p>
 <p>タイトル: <%= @twepic.title %></p>
 <p>内容: <%= @twepic.content %></p>
 <% unless @twepic.user_id == current_user.id %>

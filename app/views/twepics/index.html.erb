@@ -10,6 +10,7 @@
 <div class="row">
   <% @twepics.each do |twepic| %>
     <div class="col-xs-12 col-md-6">
+          <p><%= twepic.user.name %>'s twepic!</p>
           <h4><%= twepic.title %></h4>
           <p><%= twepic.content %></p>
           <%= link_to '詳細確認', twepic_path(twepic.id), class: "btn btn-default" %>
