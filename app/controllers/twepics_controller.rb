@@ -18,6 +18,7 @@ class TwepicsController < ApplicationController
     @twepic = Twepic.create(twepic_params)
     @twepic.user_id = current_user.id
     if @twepic.save
+      TwepicMailer.twepic_mail(@twepic).deliver
       redirect_to twepics_path, notice: "投稿しました！"
     else
       render 'new'
@@ -46,6 +47,7 @@ class TwepicsController < ApplicationController
 
   def confirm
     @twepic = Twepic.new(twepic_params)
+    @twepic.user_id = current_user.id
     render :new if @twepic.invalid?
   end
 
