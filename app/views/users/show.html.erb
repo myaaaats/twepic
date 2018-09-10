@@ -1,3 +1,11 @@
 <h1><%= @user.name %>のページ</h1>
 
 <p>メールアドレス: <%= @user.email %></p>
+
+<h2>あなたのお気に入りしたツイート</h2>
+ <% @user.favorite_twepics.each do |favorite| %>
+   <p><%= favorite.user.name %>'s twepic!</p>
+   <p>タイトル：<%= favorite.title %></p>
+   <p>内容：<%= favorite.content %></p>
+   <br>
+ <% end %>

@@ -7,5 +7,5 @@ class User < ApplicationRecord
   validates :password_digest, presence: true, length: { minimum: 6 }
   has_many :twepic
   has_many :favorites, dependent: :destroy
-  has_many :favorite_posts, through: :favorites, source: :post
+  has_many :favorite_twepics, through: :favorites, source: :twepic
 end
