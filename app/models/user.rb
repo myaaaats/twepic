@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :twepics
   has_many :favorites, dependent: :destroy
   has_many :favorite_twepics, through: :favorites, source: :twepic
+  mount_uploader :image, ImageUploader
 end
