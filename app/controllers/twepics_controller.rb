@@ -53,7 +53,7 @@ class TwepicsController < ApplicationController
 
   private
   def twepic_params
-    params.require(:twepic).permit(:title, :content)
+    params.require(:twepic).permit(:title, :content, :image, :image_cache)
   end
 
   def set_twepic

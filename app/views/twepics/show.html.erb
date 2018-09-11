@@ -2,6 +2,9 @@
 <p>投稿ユーザー<%= @twepic.user.name %></p>
 <p>タイトル: <%= @twepic.title %></p>
 <p>内容: <%= @twepic.content %></p>
+<% if @twepic.image %>
+  <p>画像：<%= image_tag @twepic.image %></p>
+<% end %>
 <% unless @twepic.user_id == current_user.id %>
   <% if @favorite.present? %>
     <p><%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %></p>

@@ -17,6 +17,10 @@
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
+  <div>
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :feed_image %>
+  </div>
   <%= form.submit %>
 <% end %>
 <%= link_to '一覧画面にもどる', twepics_path %>

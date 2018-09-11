@@ -3,6 +3,8 @@
 <%= form_with(model: @twepic, url: twepics_path, local: true) do |form| %>
   <%= form.hidden_field :title %>
   <%= form.hidden_field :content %>
+  <p>image：<%= image_tag(@twepic.image) %></p>
+   <%= form.hidden_field :image_cache %>
 
   <p>タイトル:<%= @twepic.title %></p>
   <p>本文:<%= @twepic.content %></p>

@@ -13,6 +13,9 @@
           <p><%= twepic.user.name %>'s twepic!</p>
           <h4><%= twepic.title %></h4>
           <p><%= twepic.content %></p>
+          <% if twepic.image %>
+            <p><%= image_tag twepic.image %></p>
+          <% end %>
           <%= link_to '詳細確認', twepic_path(twepic.id), class: "btn btn-default" %>
           <%= link_to "編集する", edit_twepic_path(twepic.id), class: "btn btn-info" %>
           <%= link_to '削除する', twepic_path(twepic.id), class: "btn btn-danger", method: :delete ,data: { confirm: '本当に削除していいですか？' }  %>
