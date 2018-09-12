@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  root 'tops#index'
   get 'sessions/new'
 
-  root :to => 'tops#index'
   get '/twepics', to: 'twepics#index'
   resources :twepics do
     collection do
